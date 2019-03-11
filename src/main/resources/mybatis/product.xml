@@ -13,6 +13,9 @@
         <result column="product_describe" property="productDescribe"/>
         <result column="sell_point" property="sellPoint"/>
         <result column="product_size" property="productSize"/>
+        <result column="is_selling" property="isSelling"/>
+        <result column="is_boutique" property="isBoutique"/>
+        <result column="img_url" property="imgUrl"/>
         <association property="version" select="getVersionByProId"
                     column="product_id"/>
 
