@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.phone.dao.CartsDao">
+
+    <delete id="delCartById">
+        delete from cart
+        where id=#{id}
+    </delete>
+
+    <insert id="addCartByProductId">
+        INSERT INTO cart ( user_id, product_id)
+        VALUES
+            (#{userId}, #{PeoductId});
+
+    </insert>
+
+    <select id="getCarts" resultType="com.phone.vo.CartsVo">
+        select c.product_id,p.product_name,b.brand_name,co.color_name,v.version_price price,
+               c.buy_num,v.version_name,i.img_path1
+        from tb_cart c left join tb_product p on c.product_id=p.product_id
+        left join tb_brand b on p.brand_id=b.brand_id
+        left join tb_imgs i on p.brand_id=i.product_id
+        left join tb_color co on c.product_id=co.product_id
+        left join tb_version v on c.product_id=v.product_id
+        left join tb_user u on c.user_id=u.user_id
+        where 1=1 and u.user_id=#{userId}
+    </select>
+</mapper>

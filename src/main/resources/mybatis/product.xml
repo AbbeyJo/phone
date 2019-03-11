@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.phone.dao.ProductDao">
+
+    <resultMap id="prdMap" type="com.phone.model.Product">
+        <id column="product_id" property="productId"/>
+        <result column="brand_id" property="brandId"/>
+        <result column="order_detail_id" property="orderDetailId"/>
+        <result column="product_number" property="productNumber"/>
+        <result column="product_name" property="productName"/>
+        <result column="product_describe" property="productDescribe"/>
+        <result column="sell_point" property="sellPoint"/>
+        <result column="product_size" property="productSize"/>
+        <collection property="version" select="getVersionByProId"
+                    column="product_id"
+                    ofType="com.phone.model.Version"/>
+
+        <collection property="colors" select="getColorsByProId"
+                    column="product_id"
+                    ofType="com.phone.model.Colors"/>
+
+    </resultMap>
+
+    <select id="getProById" resultMap="prdMap">
+        SELECT * FROM tb_product WHERE 1=1 AND product_id=#{prId}
+    </select>
+
+    <select id="getVersionByProId" resultType="com.phone.model.Version">
+        SELECT * FROM tb_version WHERE 1=1 AND product_id=#{prId}
+    </select>
+
+    <select id="getColorsByProId">
+        SELECT * FROM tb_color WHERE 1=1 AND product_id=#{prId}
+    </select>
+</mapper>
