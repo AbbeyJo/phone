@@ -21,7 +21,10 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     public List<Product> getAllPro(){
-        return productDao.selectAll();
+
+        Product product = new Product();
+        product.setIsShelf(true);
+        return productDao.select(product);
     }
 
     public Product getProById(Integer id){
@@ -43,5 +46,11 @@ public class ProductServiceImpl implements ProductService {
     public int updateProById(Product product){
 
         return productDao.updateByPrimaryKeySelective(product);
+    }
+
+    @Override
+    public int shift(Integer[] productId,Integer isShift) {
+
+        return productDao.shift(productId,isShift);
     }
 }

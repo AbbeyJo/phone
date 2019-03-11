@@ -3,8 +3,11 @@ package com.phone.service.impl;
 import com.phone.dao.UserDao;
 import com.phone.model.User;
 import com.phone.service.UserService;
+import com.phone.vo.ResponseVo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Service
@@ -18,8 +21,30 @@ public class UserServiceImpl implements UserService {
         return userDao.insert(user);
     }
 
-    public User findUserById(Integer userId){
+    @Override
+    public User findUser(String username,String password){
 
-        return userDao.selectByPrimaryKey(userId);
+        return userDao.findUser(username,password);
+    }
+
+    @Override
+    public ResponseVo findUserByUsername(String username) {
+
+        User user = new User();
+        user.setUserName(username);
+        int i = userDao.selectCount(user);
+        if (i < 0){
+
+            return ResponseVo.error(null,201,"账号不存在");
+        }
+        return null;
+    }
+
+    @Override
+    public ResponseVo delUser(Integer[] userIDS) {
+
+        String join = StringUtils.join(userIDS, ',');
+        int i = userDao.deleteByIds(join);
+        return null;
     }
 }

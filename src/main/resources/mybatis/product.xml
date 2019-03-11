@@ -16,6 +16,7 @@
         <result column="is_selling" property="isSelling"/>
         <result column="is_boutique" property="isBoutique"/>
         <result column="img_url" property="imgUrl"/>
+        <result column="is_shelf" property="isShelf"/>
         <association property="version" select="getVersionByProId"
                     column="product_id"/>
 
@@ -35,4 +36,16 @@
     <select id="getColorsByProId" resultType="com.phone.model.Colors">
         SELECT * FROM tb_color WHERE 1=1 AND product_id=#{productId}
     </select>
+
+    <update id="shift">
+        update tb_product
+        <set>
+            is_shelf = #{shift}
+        </set>
+        where product_id in (
+          <foreach collection="pIdS" item="pId" separator=",">
+              #{pId}
+          </foreach>
+        )
+    </update>
 </mapper>

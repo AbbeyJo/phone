@@ -30,6 +30,7 @@ public class Product implements Serializable {
     private Boolean isSelling;
     private Boolean isBoutique;
     private String imgUrl;
+    private Boolean isShelf;
 
     private List<Version> version;
 

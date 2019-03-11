@@ -20,4 +20,6 @@ public interface ProductService {
     int addPro(Product product);
 
     int updateProById(Product product);
+
+    int shift(Integer[] productId,Integer isShift);
 }

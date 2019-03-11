@@ -2,35 +2,37 @@ package com.phone.controller;
 
 import com.phone.model.Product;
 import com.phone.service.ProductService;
-import com.phone.service.impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class ProductController {
 
     @Autowired
     private ProductService productService;
 
     @RequestMapping("/getAllPro")
-    @ResponseBody
     public List<Product> getAll(){
 
         return productService.getAllPro();
     }
 
     @RequestMapping("/getProById")
-    @ResponseBody
     public Product getProById(Integer proId){
 
         return productService.getProById(proId);
     }
 
+    /**
+     * 删除商品
+     * @param ids string 数组
+     * @return
+     */
     @RequestMapping("/delProById")
     public int delProById(String... ids){
 
@@ -41,5 +43,29 @@ public class ProductController {
     public int updatePro(@RequestBody Product product){
 
         return productService.updateProById(product);
+    }
+
+    /**
+     * 上架商品
+     * @param productIdS int数组
+     * @return
+     */
+    @RequestMapping("/upShift")
+    public int upShift(@RequestParam Integer... productIdS){
+
+        int shift = 1;
+        return productService.shift(productIdS,shift);
+    }
+
+    /**
+     * 下架商品
+     * @param productIdS int数组
+     * @return
+     */
+    @RequestMapping("/downShift")
+    public int downShift(@RequestParam Integer... productIdS){
+
+        int shift = 0; //下架标识
+        return productService.shift(productIdS,shift);
     }
 }

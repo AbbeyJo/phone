@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.phone.dao.UserDao">
+
+    <select id="findUser" resultType="com.phone.model.User">
+        select * from tb_user u where 1=1
+        and u.user_name=#{username} and #{password}
+    </select>
+</mapper>

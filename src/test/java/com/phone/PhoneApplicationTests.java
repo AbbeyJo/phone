@@ -32,9 +32,9 @@ public class PhoneApplicationTests {
     @Test
     public void testProd() {
 
-        Product allPro = productService.getProById(1001);
+        List<Product> allPro = productService.getAllPro();
 
-        log.info("....... {}",allPro);
+        log.info("....... {}",allPro.size());
     }
 
     @Test
@@ -43,5 +43,7 @@ public class PhoneApplicationTests {
         List<CartsVo> carts = cartsService.getCarts(10);
         log.info("......{}",carts);
     }
+
+
 
 }
