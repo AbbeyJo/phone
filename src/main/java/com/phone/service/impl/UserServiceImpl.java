@@ -44,7 +44,14 @@ public class UserServiceImpl implements UserService {
     public ResponseVo delUser(Integer[] userIDS) {
 
         String join = StringUtils.join(userIDS, ',');
-        int i = userDao.deleteByIds(join);
-        return null;
+        try {
+
+            userDao.deleteByIds(join);
+            return ResponseVo.OK(200,"删除成功");
+        }catch (Exception e) {
+            e.printStackTrace();
+            return ResponseVo.error(201,"删除失败");
+        }
+
     }
 }

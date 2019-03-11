@@ -27,6 +27,13 @@ public class ResponseVo implements Serializable {
         return rv;
     }
 
+    public static ResponseVo error(Integer code, String message) {
+        ResponseVo rv = new ResponseVo();
+        rv.code = code;
+        rv.message = message;
+        return rv;
+    }
+
     public static ResponseVo OK(Object data) {
         ResponseVo rv = new ResponseVo();
         rv.data = data;
