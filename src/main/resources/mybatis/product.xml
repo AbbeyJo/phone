@@ -13,13 +13,11 @@
         <result column="product_describe" property="productDescribe"/>
         <result column="sell_point" property="sellPoint"/>
         <result column="product_size" property="productSize"/>
-        <collection property="version" select="getVersionByProId"
-                    column="product_id"
-                    ofType="com.phone.model.Version"/>
+        <association property="version" select="getVersionByProId"
+                    column="product_id"/>
 
-        <collection property="colors" select="getColorsByProId"
-                    column="product_id"
-                    ofType="com.phone.model.Colors"/>
+        <association property="colors" select="getColorsByProId"
+                    column="product_id"/>
 
     </resultMap>
 
@@ -28,10 +26,10 @@
     </select>
 
     <select id="getVersionByProId" resultType="com.phone.model.Version">
-        SELECT * FROM tb_version WHERE 1=1 AND product_id=#{prId}
+        SELECT * FROM tb_version WHERE 1=1 AND product_id=#{productId}
     </select>
 
-    <select id="getColorsByProId">
-        SELECT * FROM tb_color WHERE 1=1 AND product_id=#{prId}
+    <select id="getColorsByProId" resultType="com.phone.model.Colors">
+        SELECT * FROM tb_color WHERE 1=1 AND product_id=#{productId}
     </select>
 </mapper>

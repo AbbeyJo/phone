@@ -1,7 +1,6 @@
 package com.phone.service;
 
 import com.phone.model.Product;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -12,13 +11,13 @@ import java.util.List;
  */
 public interface ProductService {
 
-    public List<Product> getAllPro();
+    List<Product> getAllPro();
 
-    public Product getProById(Integer id);
+    Product getProById(Integer id);
 
-    public int delProById(String... ids);
+    int delProById(String... ids);
 
-    public int addPro(Product product);
+    int addPro(Product product);
 
-    public int updateProById(Product product);
+    int updateProById(Product product);
 }

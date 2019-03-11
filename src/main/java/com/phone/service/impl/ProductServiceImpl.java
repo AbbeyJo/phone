@@ -26,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 
     public Product getProById(Integer id){
 
-        return productDao.selectByPrimaryKey(id);
+        return productDao.getProById(id);
     }
 
     public int delProById(String... ids){

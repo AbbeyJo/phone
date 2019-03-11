@@ -32,9 +32,9 @@ public class PhoneApplicationTests {
     @Test
     public void testProd() {
 
-        Product product = productService.getProById(1001);
+        Product allPro = productService.getProById(1001);
 
-        log.info(".....{}",product);
+        log.info("....... {}",allPro);
     }
 
     @Test

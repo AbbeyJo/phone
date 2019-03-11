@@ -15,9 +15,9 @@ import java.util.List;
  */
 public interface ProductDao extends Mapper<Product>, IdsMapper<Product> {
 
-    List<Product> getProById(Integer prId);
+    Product getProById(Integer prId);
 
-    List<Version> getVersionByProId(Integer prId);
+    List<Version> getVersionByProId(Integer productId);
 
-    List<Colors> getColorsByProId(Integer prId);
+    List<Colors> getColorsByProId(Integer productId);
 }

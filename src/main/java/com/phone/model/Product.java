@@ -17,13 +17,18 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
     private String brandId;
+
     private Integer orderDetailId;
     private String productNumber;
+
     private String productName;
     private String productDescribe;
 
     private String sellPoint;
     private Float productSize;
+
+    private Boolean isSelling;
+    private Boolean isBoutique;
 
     private List<Version> version;
 
