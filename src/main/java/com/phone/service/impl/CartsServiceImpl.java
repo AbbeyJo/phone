@@ -4,6 +4,7 @@ import com.phone.dao.CartsDao;
 import com.phone.model.Carts;
 import com.phone.service.CartsService;
 import com.phone.vo.CartsVo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,18 +22,14 @@ public class CartsServiceImpl implements CartsService {
     private CartsDao cartsDao;
 
     @Override
-    public List<Carts> getCartsList() {
-        return null;
+    public int addCartByProductId(Carts carts) {
+        return cartsDao.insertSelective(carts);
     }
 
     @Override
-    public int addCartByProductId(int peoductId) {
-        return 0;
-    }
-
-    @Override
-    public int delCartById(int id) {
-        return 0;
+    public int delCartById(Integer... ids) {
+        String join = StringUtils.join(ids, ",");
+        return cartsDao.deleteByIds(join);
     }
 
     @Override

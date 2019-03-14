@@ -28,5 +28,5 @@ public class Carts implements Serializable {
 
     private Integer buyNum;
 
-    private Date createUpdate;
+    private Date createTime;
 }

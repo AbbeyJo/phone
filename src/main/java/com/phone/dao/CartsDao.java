@@ -2,13 +2,12 @@ package com.phone.dao;
 
 import com.phone.model.Carts;
 import com.phone.vo.CartsVo;
-import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.common.IdsMapper;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-//@Repository
-public interface CartsDao extends Mapper<Carts> {
+public interface CartsDao extends Mapper<Carts>, IdsMapper<Carts> {
 
     int delCartById(Integer id);
 

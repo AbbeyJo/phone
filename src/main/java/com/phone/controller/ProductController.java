@@ -40,6 +40,12 @@ public class ProductController {
     }
 
     @RequestMapping("/addPro")
+    public int addPro(@RequestBody Product product){
+
+        return productService.addPro(product);
+    }
+
+    @RequestMapping("/updatePro")
     public int updatePro(@RequestBody Product product){
 
         return productService.updateProById(product);

@@ -1,5 +1,6 @@
 package com.phone.controller;
 
+import com.phone.model.Carts;
 import com.phone.service.CartsService;
 import com.phone.vo.CartsVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,17 @@ public class CartController {
     private CartsService cartsService;
 
     @RequestMapping("/addCart")
-    public int addCart(@RequestParam Integer prdId){
-        return cartsService.addCartByProductId(prdId);
+    public int addCart(@RequestParam Carts carts){
+        return cartsService.addCartByProductId(carts);
     }
 
     @RequestMapping("/getCarts")
     public List<CartsVo> getCarts(@RequestParam Integer userId){
         return cartsService.getCarts(userId);
+    }
+
+    @RequestMapping("/delCart")
+    public int delCart(@RequestParam Integer... ids){
+        return cartsService.delCartById(ids);
     }
 }

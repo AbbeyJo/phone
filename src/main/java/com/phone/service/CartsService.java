@@ -13,11 +13,10 @@ import java.util.List;
  */
 public interface CartsService {
 
-    List<Carts> getCartsList();
 
-    int addCartByProductId(int peoductId);
+    int addCartByProductId(Carts carts);
 
-    int delCartById(int id);
+    int delCartById(Integer... ids);
 
     List<CartsVo> getCarts(Integer userId);
 }

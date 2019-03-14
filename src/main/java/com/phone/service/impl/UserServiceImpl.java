@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
             return ResponseVo.error(null,201,"账号不存在");
         }
-        return null;
+        return ResponseVo.OK(null);
     }
 
     @Override
