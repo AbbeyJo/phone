@@ -20,5 +20,45 @@ public class Version implements Serializable {
     private String versionName;
     private Float versionPrice;
 
+    public Integer getVersionId() {
+        return versionId;
+    }
 
+    public void setVersionId(Integer versionId) {
+        this.versionId = versionId;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public String getVersionName() {
+        return versionName;
+    }
+
+    public void setVersionName(String versionName) {
+        this.versionName = versionName;
+    }
+
+    public Float getVersionPrice() {
+        return versionPrice;
+    }
+
+    public void setVersionPrice(Float versionPrice) {
+        this.versionPrice = versionPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Version{" +
+                "versionId=" + versionId +
+                ", productId=" + productId +
+                ", versionName='" + versionName + '\'' +
+                ", versionPrice=" + versionPrice +
+                '}';
+    }
 }

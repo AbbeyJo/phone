@@ -1,8 +1,11 @@
 package com.phone.dao;
 
 import com.phone.model.OrderDetail;
+import com.phone.vo.OrdersVo;
 import tk.mybatis.mapper.common.IdsMapper;
 import tk.mybatis.mapper.common.Mapper;
+
+import java.util.List;
 
 /**
  * @Auther: Deng.Xiao
@@ -10,4 +13,6 @@ import tk.mybatis.mapper.common.Mapper;
  * @Description:
  */
 public interface OrderDao extends Mapper<OrderDetail>, IdsMapper<OrderDetail> {
+
+    List<OrdersVo> getOrders(Integer userId);
 }

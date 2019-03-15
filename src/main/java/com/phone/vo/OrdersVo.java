@@ -1,17 +1,10 @@
-package com.phone.model;
+package com.phone.vo;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
-@Table(name = "tb_order_detail")
-public class OrderDetail implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class OrdersVo implements Serializable {
+
     private Integer id;
     private Integer userId;
     private Integer productId;
@@ -19,7 +12,8 @@ public class OrderDetail implements Serializable {
     private Integer payStatus;
     private String color;
     private String version;
-    private Date createTime;
+    private String imgUrl;
+    private String productName;
 
     public Integer getId() {
         return id;
@@ -77,17 +71,25 @@ public class OrderDetail implements Serializable {
         this.version = version;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     @Override
     public String toString() {
-        return "OrderDetail{" +
+        return "OrdersVo{" +
                 "id=" + id +
                 ", userId=" + userId +
                 ", productId=" + productId +
@@ -95,7 +97,8 @@ public class OrderDetail implements Serializable {
                 ", payStatus=" + payStatus +
                 ", color='" + color + '\'' +
                 ", version='" + version + '\'' +
-                ", createTime=" + createTime +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", productName='" + productName + '\'' +
                 '}';
     }
 }

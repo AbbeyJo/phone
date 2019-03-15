@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.phone.dao.OrderDao">
+
+    <select id="getOrders" resultType="com.phone.vo.OrdersVo">
+        select o.id,o.user_id,o.product_id,o.product_count,o.pay_status
+        ,o.color,o.version,p.img_url,p.product_name
+        from tb_order o left join tb_product p on o.product_id=p.product_id
+        where 1=1 and o.user_id=#{userId}
+    </select>
+</mapper>
