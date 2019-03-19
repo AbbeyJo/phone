@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getAllPro(){
 
         Product product = new Product();
-        product.setIsShelf(true);
+        product.setShelf(true);
         return productDao.select(product);
     }
 

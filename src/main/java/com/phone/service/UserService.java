@@ -18,4 +18,6 @@ public interface UserService {
     ResponseVo findUserByUsername(String username);
 
     ResponseVo delUser(Integer[] userIDS);
+
+    int updateUser(User user);
 }

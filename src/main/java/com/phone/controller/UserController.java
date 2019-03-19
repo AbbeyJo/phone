@@ -23,6 +23,19 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    @RequestMapping("/updateUser")
+    public int updateUser(@RequestBody User user){
+
+        return userService.updateUser(user);
+    }
+
+    /**
+     * 登录
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     @RequestMapping("/login")
     public User findUserById(@RequestParam("username") String username,
                              @RequestParam("password") String password){
@@ -41,6 +54,12 @@ public class UserController {
         return userService.findUserByUsername(username);
     }
 
+    /**
+     * 删除用户
+     *
+     * @param userIDS
+     * @return
+     */
     @RequestMapping("/delUser")
     public ResponseVo delUser(Integer... userIDS){
 

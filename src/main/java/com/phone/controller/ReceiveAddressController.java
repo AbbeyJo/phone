@@ -17,21 +17,45 @@ public class ReceiveAddressController {
     @Autowired
     private ReceiveAddressService addressService;
 
+    /**
+     * 天机收货地址
+     *
+     * @param address
+     * @return
+     */
     @RequestMapping("/addAddress")
     public int addAddress(@RequestBody ReceiveAddress address){
         return addressService.addAddress(address);
     }
 
+    /**
+     * 更新收获地址
+     *
+     * @param address
+     * @return
+     */
     @RequestMapping("/updateAddress")
     public int updateAddress(@RequestBody ReceiveAddress address){
         return addressService.updateAddress(address);
     }
 
+    /**
+     * 获取收货地址
+     *
+     * @param userId
+     * @return
+     */
     @RequestMapping("/getAllAddress")
     public List<ReceiveAddress> getAllAddress(@RequestParam Integer userId){
         return addressService.getAllAddress(userId);
     }
 
+    /**
+     * 删除收货地址
+     *
+     * @param addressIds
+     * @return
+     */
     @RequestMapping("/delAddress")
     public int delAddress(@RequestParam Integer... addressIds){
 

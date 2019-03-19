@@ -16,12 +16,23 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    /**
+     * 获取商品列表
+     *
+     * @return
+     */
     @RequestMapping("/getAllPro")
     public List<Product> getAll(){
 
         return productService.getAllPro();
     }
 
+    /**
+     * 获取商品详情
+     *
+     * @param proId
+     * @return
+     */
     @RequestMapping("/getProById")
     public Product getProById(Integer proId){
 
@@ -39,12 +50,24 @@ public class ProductController {
         return productService.delProById(ids);
     }
 
+    /**
+     * 添加商品
+     *
+     * @param product
+     * @return
+     */
     @RequestMapping("/addPro")
     public int addPro(@RequestBody Product product){
 
         return productService.addPro(product);
     }
 
+    /**
+     * 更新商品
+     *
+     * @param product
+     * @return
+     */
     @RequestMapping("/updatePro")
     public int updatePro(@RequestBody Product product){
 

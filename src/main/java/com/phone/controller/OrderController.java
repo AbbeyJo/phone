@@ -30,6 +30,12 @@ public class OrderController {
         return orderService.addOrder(orderDetail);
     }
 
+    /**
+     * 支付
+     *
+     * @param orderId
+     * @return
+     */
     @RequestMapping("/pay")
     public int pay(@RequestParam("orderId") Integer orderId){
 
@@ -37,12 +43,24 @@ public class OrderController {
         return orderService.pay(orderId,payStatus);
     }
 
+    /**
+     * 删除订单
+     *
+     * @param orderIds
+     * @return
+     */
     @RequestMapping("/delOrder")
     public int delOrder(@RequestParam("orderIds") Integer... orderIds){
 
         return orderService.delOrder(orderIds);
     }
 
+    /**
+     * 获取订单列表
+     *
+     * @param userId
+     * @return
+     */
     @RequestMapping("/getOrders")
     public List<OrdersVo> getOrders(@RequestParam("userId") Integer userId){
 
