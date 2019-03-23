@@ -9,8 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class UserController {
 
     @Autowired
@@ -37,8 +38,8 @@ public class UserController {
      * @return
      */
     @RequestMapping("/login")
-    public User findUserById(@RequestParam("username") String username,
-                             @RequestParam("password") String password){
+    public User login(@RequestParam(value = "username") String username,
+                             @RequestParam(value = "password") String password){
 
         return userService.findUser(username,password);
     }
@@ -49,7 +50,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("/findUserIsExit")
-    public ResponseVo findUserById(@RequestParam("username") String username){
+    public ResponseVo findUserIsExit(@RequestParam("username") String username){
 
         return userService.findUserByUsername(username);
     }

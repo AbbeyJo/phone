@@ -6,6 +6,6 @@
 
     <select id="findUser" resultType="com.phone.model.User">
         select * from tb_user u where 1=1
-        and u.user_name=#{username} and #{password}
+        and u.user_name=#{username} and u.password=#{password}
     </select>
 </mapper>
