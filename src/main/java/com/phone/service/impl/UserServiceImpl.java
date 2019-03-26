@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,7 +19,6 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     public int addUser(User user){
-
         return userDao.insert(user);
     }
 

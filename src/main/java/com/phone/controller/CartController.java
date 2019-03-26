@@ -4,6 +4,7 @@ import com.phone.model.Carts;
 import com.phone.service.CartsService;
 import com.phone.vo.CartsVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ public class CartController {
      * @return
      */
     @RequestMapping("/addCart")
-    public int addCart(@RequestParam Carts carts){
+    public int addCart(@RequestBody Carts carts){
         return cartsService.addCartByProductId(carts);
     }
 
