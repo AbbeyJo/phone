@@ -1,8 +1,10 @@
 package com.phone;
 
 import com.phone.model.Product;
+import com.phone.model.User;
 import com.phone.service.CartsService;
 import com.phone.service.ProductService;
+import com.phone.service.UserService;
 import com.phone.vo.CartsVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -28,21 +30,24 @@ public class PhoneApplicationTests {
 
     @Autowired
     private CartsService cartsService;
-
+    
+    @Autowired
+    private UserService userservice;
+    
+    
     @Test
-    public void testProd() {
-
-        List<Product> allPro = productService.getAllPro();
-
-        log.info("....... {}",allPro.size());
+    public void test() {
+    	User user = new User();
+    	user.setPassword("121");
+    	user.setUserName("张三");
+    	User user1 = userservice.findUser("张三", "121");
     }
+    
+    
+    
+    
 
-    @Test
-    public void testCart() {
-
-        List<CartsVo> carts = cartsService.getCarts(10);
-        log.info("......{}",carts);
-    }
+  
 
 
 

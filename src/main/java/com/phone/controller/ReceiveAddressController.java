@@ -19,7 +19,7 @@ public class ReceiveAddressController {
 
     /**
      * 天机收货地址
-     *
+     * http://localhost:8001/phone/ra/addAddress
      * @param address
      * @return
      */
@@ -30,7 +30,7 @@ public class ReceiveAddressController {
 
     /**
      * 更新收获地址
-     *
+     * http://localhost:8001/phone/ra/updateAddress
      * @param address
      * @return
      */
@@ -41,7 +41,7 @@ public class ReceiveAddressController {
 
     /**
      * 获取收货地址
-     *
+     * http://localhost:8001/phone/ra/getAllAddress
      * @param userId
      * @return
      */
@@ -52,7 +52,7 @@ public class ReceiveAddressController {
 
     /**
      * 删除收货地址
-     *
+     * http://localhost:8001/phone/ra/delAddress
      * @param addressIds
      * @return
      */

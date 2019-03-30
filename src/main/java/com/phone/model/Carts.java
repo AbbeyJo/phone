@@ -27,7 +27,13 @@ public class Carts implements Serializable {
 
     private Integer buyNum;
 
-    private Date createTime;
+    private String buyColor;
+    
+    private String buyVersion;
+    
+    private Float buyPrice;
+
+	private Date createTime;
 
     public Integer getId() {
         return id;
@@ -60,7 +66,31 @@ public class Carts implements Serializable {
     public void setBuyNum(Integer buyNum) {
         this.buyNum = buyNum;
     }
+    
+    public String getBuyColor() {
+	return buyColor;
+	}
 
+	public void setBuyColor(String buyColor) {
+		this.buyColor = buyColor;
+	}
+
+	public String getBuyVersion() {
+		return buyVersion;
+	}
+
+	public void setBuyVersion(String buyVersion) {
+		this.buyVersion = buyVersion;
+	}
+
+	 public Float getBuyPrice() {
+			return buyPrice;
+		}
+
+	public void setBuyPrice(Float buyPrice) {
+			this.buyPrice = buyPrice;
+		}
+		
     public Date getCreateTime() {
         return createTime;
     }
@@ -76,6 +106,9 @@ public class Carts implements Serializable {
                 ", userId=" + userId +
                 ", productId=" + productId +
                 ", buyNum=" + buyNum +
+                ", buyColor=" + buyColor +
+                ", buyVersion=" + buyVersion +
+                ", buyPrice=" + buyPrice +
                 ", createTime=" + createTime +
                 '}';
     }

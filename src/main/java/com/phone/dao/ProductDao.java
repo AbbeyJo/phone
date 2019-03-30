@@ -24,4 +24,6 @@ public interface ProductDao extends Mapper<Product>, IdsMapper<Product> {
 
     int shift(@Param("pIdS") Integer[] productId,
                 @Param("shift") Integer shift);
+
+    List<Product> selectAllPro(@Param("keyword") String keyword);
 }

@@ -20,4 +20,6 @@ public interface UserService {
     ResponseVo delUser(Integer[] userIDS);
 
     int updateUser(User user);
+
+    ResponseVo getAllUser();
 }

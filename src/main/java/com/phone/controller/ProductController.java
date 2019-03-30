@@ -17,19 +17,20 @@ public class ProductController {
     private ProductService productService;
 
     /**
-     * 获取商品列表
-     *
+     * 获取商品列表 包括商品名模糊查询
+     * http://localhost:8001/phone/getAllPro
+     * @param keyword 非必须 - 所有商品和模糊查询一个接口
      * @return
      */
     @RequestMapping("/getAllPro")
-    public List<Product> getAll(){
+    public List<Product> getAll(@RequestParam(required = false) String keyword){
 
-        return productService.getAllPro();
+        return productService.getAllPro(keyword);
     }
 
     /**
      * 获取商品详情
-     *
+     * http://localhost:8001/phone/getProById
      * @param proId
      * @return
      */
@@ -41,6 +42,7 @@ public class ProductController {
 
     /**
      * 删除商品
+     * http://localhost:8001/phone/delProById
      * @param ids string 数组
      * @return
      */
@@ -52,7 +54,7 @@ public class ProductController {
 
     /**
      * 添加商品
-     *
+     * http://localhost:8001/phone/addPro
      * @param product
      * @return
      */
@@ -64,7 +66,7 @@ public class ProductController {
 
     /**
      * 更新商品
-     *
+     * http://localhost:8001/phone/updatePro
      * @param product
      * @return
      */
@@ -76,6 +78,7 @@ public class ProductController {
 
     /**
      * 上架商品
+     * http://localhost:8001/phone/upShift
      * @param productIdS int数组
      * @return
      */
@@ -88,6 +91,7 @@ public class ProductController {
 
     /**
      * 下架商品
+     * http://localhost:8001/phone/downShift
      * @param productIdS int数组
      * @return
      */

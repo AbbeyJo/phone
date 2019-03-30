@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface ProductService {
 
-    List<Product> getAllPro();
+    List<Product> getAllPro(String keyword);
 
     Product getProById(Integer id);
 

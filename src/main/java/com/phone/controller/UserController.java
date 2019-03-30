@@ -17,6 +17,7 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+    //URL http://localhost:8001/phone/addUser
     //注册/添加用户
     @RequestMapping("/addUser")
     public int addUser(@RequestBody User user){
@@ -24,6 +25,7 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    //URL http://localhost:8001/phone/updateUser
     @RequestMapping("/updateUser")
     public int updateUser(@RequestBody User user){
 
@@ -32,7 +34,7 @@ public class UserController {
 
     /**
      * 登录
-     *
+     * URL http://localhost:8001/phone/login
      * @param username
      * @param password
      * @return
@@ -46,6 +48,8 @@ public class UserController {
 
     /**
      * 检测用户名是否存在
+     * URL http://localhost:8001/phone/findUserIsExit
+     * 若返回code=201 表示账号已被占用 =200 表示可以注册
      * @param username
      * @return
      */
@@ -57,13 +61,24 @@ public class UserController {
 
     /**
      * 删除用户
-     *
-     * @param userIDS
+     * URL http://localhost:8001/phone/delUser
+     * @param userIDS int数组m 10,11
      * @return
      */
     @RequestMapping("/delUser")
-    public ResponseVo delUser(Integer... userIDS){
+    public ResponseVo delUser(@RequestParam("userIDS")Integer... userIDS){
 
         return userService.delUser(userIDS);
+    }
+
+    /**
+     * 获取所有的用户
+     * URL http://localhost:8001/phone/getAllUser
+     * @return
+     */
+    @RequestMapping("/getAllUser")
+    public ResponseVo delUser(){
+
+        return userService.getAllUser();
     }
 }

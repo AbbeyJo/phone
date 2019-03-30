@@ -33,6 +33,14 @@
         SELECT * FROM tb_version WHERE 1=1 AND product_id=#{productId}
     </select>
 
+    <select id="selectAllPro" resultType="com.phone.model.Product">
+        select * from tb_product p
+        where 1=1 and p.is_shelf=1
+        <if test="keyword != null">
+            and p.product_name like concat("%",#{keyword},"%")
+        </if>
+
+    </select>
     <select id="getColorsByProId" resultType="com.phone.model.Colors">
         SELECT * FROM tb_color WHERE 1=1 AND product_id=#{productId}
     </select>

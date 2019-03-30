@@ -19,6 +19,7 @@ public class CartController {
 
     /**
      * 添加购物车
+     * URL http://localhost:8001/phone/addCart
      * @param carts
      * @return
      */
@@ -29,7 +30,7 @@ public class CartController {
 
     /**
      * 获取购物车列表
-     *
+     * URL http://localhost:8001/phone/getCarts
      * @param userId
      * @return
      */
@@ -40,7 +41,7 @@ public class CartController {
 
     /**
      * 删除购物车
-     *
+     * URL http://localhost:8001/phone/delCart
      * @param ids
      * @return
      */

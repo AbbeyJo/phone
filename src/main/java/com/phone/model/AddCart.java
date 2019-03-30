@@ -1,4 +1,4 @@
-package com.phone.form.news;
+package com.phone.model;
 
 import lombok.Data;
 

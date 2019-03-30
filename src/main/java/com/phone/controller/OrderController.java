@@ -20,7 +20,7 @@ public class OrderController {
 
     /**
      * 生成订单
-     *
+     * URL http://localhost:8001/phone/order/addOrder
      * @param orderDetail
      * @return
      */
@@ -32,7 +32,7 @@ public class OrderController {
 
     /**
      * 支付
-     *
+     * URL http://localhost:8001/phone/order/pay
      * @param orderId
      * @return
      */
@@ -45,8 +45,8 @@ public class OrderController {
 
     /**
      * 删除订单
-     *
-     * @param orderIds
+     * URL http://localhost:8001/phone/order/delOrder
+     * @param orderIds int数组
      * @return
      */
     @RequestMapping("/delOrder")
@@ -57,7 +57,7 @@ public class OrderController {
 
     /**
      * 获取订单列表
-     *
+     * URL http://localhost:8001/phone/order/getOrders
      * @param userId
      * @return
      */

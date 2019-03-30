@@ -20,11 +20,10 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductDao productDao;
 
-    public List<Product> getAllPro(){
+    public List<Product> getAllPro(String keyword){
 
-        Product product = new Product();
-        product.setShelf(true);
-        return productDao.select(product);
+
+        return productDao.selectAllPro(keyword);
     }
 
     public Product getProById(Integer id){
@@ -40,6 +39,7 @@ public class ProductServiceImpl implements ProductService {
 
     public int addPro(Product product){
 
+    	
         return productDao.insert(product);
     }
 

@@ -9,23 +9,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Date;
+import javax.annotation.Resource;
+import java.util.List;
 
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UserDao userDao;
 
     public int addUser(User user){
+
         return userDao.insert(user);
     }
 
     @Override
     public User findUser(String username,String password){
 
-        return userDao.findUser(username,password);
+    	User  user = userDao.findUser(username,password);
+//    	User user = new User();
+//    	user.setPassword(password);
+//    	user.setUserName(username);
+//    	User userDto = userDao.selectOne(user);
+//    	System.out.print(userDto.toString());
+        return user;
     }
 
     @Override
@@ -34,9 +42,9 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setUserName(username);
         int i = userDao.selectCount(user);
-        if (i < 0){
+        if (i > 0){
 
-            return ResponseVo.error(null,201,"账号不存在");
+            return ResponseVo.error(201,"账号已被占用");
         }
         return ResponseVo.OK(null);
     }
@@ -59,5 +67,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateUser(User user) {
         return userDao.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public ResponseVo getAllUser() {
+        List<User> users = userDao.selectAll();
+        return ResponseVo.OK(users,200,"获取所有用户成功");
     }
 }
