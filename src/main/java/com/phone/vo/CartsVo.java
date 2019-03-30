@@ -14,7 +14,6 @@ public class CartsVo implements Serializable {
 
     private Integer productId;
     private String productName;
-    private String brandName;
     private String colorName;
     private Double price;
     private Integer buyNum;
@@ -35,14 +34,6 @@ public class CartsVo implements Serializable {
 
   public void setProductName(String productName) {
     this.productName = productName;
-  }
-
-  public String getBrandName() {
-    return brandName;
-  }
-
-  public void setBrandName(String brandName) {
-    this.brandName = brandName;
   }
 
   public String getColorName() {
@@ -90,7 +81,6 @@ public class CartsVo implements Serializable {
     return "CartsVo{" +
             "productId=" + productId +
             ", productName='" + productName + '\'' +
-            ", brandName='" + brandName + '\'' +
             ", colorName='" + colorName + '\'' +
             ", price=" + price +
             ", buyNum=" + buyNum +
